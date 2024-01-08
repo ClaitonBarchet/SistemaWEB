@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useAuthentication } from "../../hooks/useAuthentication";
 import { FormGroup, Label, Form, Input, Card, Button  } from 'reactstrap';
 import { NavLink } from "react-router-dom";
@@ -54,7 +54,7 @@ const Cadastrar = () => {
           {/* NOME */}
           <Form className="ms-2 me-2">
 
-          <h3>CADASTRAR</h3>
+          <h3>NOVO CADASTRO</h3>
 
           {/*EMAIL*/}
           <FormGroup className="text-start">

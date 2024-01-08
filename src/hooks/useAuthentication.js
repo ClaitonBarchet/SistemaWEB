@@ -39,7 +39,6 @@ const createUser = async (dataUser) => {
 
             await updateProfile(user, {
                 displayName: dataUser.displayName,
-                // sobrename: dataUser.sobrename
                 email: dataUser.email
             })
 
@@ -66,6 +65,7 @@ const createUser = async (dataUser) => {
         setError(systemErrorMessage);
         console.log(systemErrorMessage)
     }
+
 }
 
 //logout - sign out
