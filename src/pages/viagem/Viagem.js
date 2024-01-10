@@ -30,17 +30,6 @@ const Viagem = () => {
     e.preventDefault();
     setError(null)
 
-  // Validar placa
-  // var regex = '[a-z]{3}[0-9][0-9a-z][0-9]{2}';
-
-  // if (placa.match(regex)) {
-  //   console.log("placa válida")
-  // }else{
-  //   setFormError("Placa inválida")
-  //   console.log(placa)
-  //   console.log(regex)
-  // }
-
   const hoInicialInt = parseInt (hoInicial)
   const hoFinalInt = parseInt (hoFinal)
 

@@ -37,17 +37,6 @@ const search = () => {
     setPostsFiltrados(aux);
   }
 
-  // if (ano === "" || mes === "") {
-  //   setPostsFiltrados([])
-  // } else {
-  //   let aux = posts.filter(p => { 
-  //     if(p.data.includes(ano + "-" + mes) && p.ui == user.uid)
-  //       return p
-  //     }
-  //   );
-  //   setPostsFiltrados(aux);
-  // }
-
 };
 
 //EDIÇÃO
@@ -99,6 +88,7 @@ const search = () => {
             <option value=""></option>
             <option value="2022">2022</option>
             <option value="2023">2023</option>
+            <option value="2024">2024</option>
         </select>
 
         {/* MÊS */}

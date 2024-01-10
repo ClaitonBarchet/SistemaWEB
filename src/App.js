@@ -22,6 +22,8 @@ import Histórico from "./pages/histórico/Histórico";
 import Editar from "./pages/editar/Editar";
 import Alterarsenha from "./pages/alterarsenha/Alterarsenha";
 
+import Estoque from './pages/estoque/Estoque';
+
  function App() {
    // AUTENTICAÇAO DO USUÁRIO
    const [user, setUser] = useState(undefined)
@@ -70,6 +72,7 @@ import Alterarsenha from "./pages/alterarsenha/Alterarsenha";
                             {!user && (<Dropdown.Item href="/cadastrar">CADASTRO</Dropdown.Item>)}
                             {user && (<Dropdown.Item href="/histórico">HISTÓRICO</Dropdown.Item>)}
                             {user && (<Dropdown.Item href="/">NOVA VIAGEM</Dropdown.Item>)}
+                            {user && (<Dropdown.Item href="/">ESTOQUE</Dropdown.Item>)}
                             {(<Dropdown.Item href="/about">SOBRE</Dropdown.Item>)}
                           <Dropdown.Divider />
                             {user && (<Dropdown.Item onClick={logout} href="/login">SAIR</Dropdown.Item>)}
@@ -96,6 +99,7 @@ import Alterarsenha from "./pages/alterarsenha/Alterarsenha";
             <Route  path="/about" element={<About />} />
             <Route  path="/editar" component = {Editar} element={user ? <Editar /> : <Navigate to="/Editar" />} />
             <Route  path="/alterarsenha" element={<Alterarsenha />} />
+            <Route  path="/estoque" element={user ? <Estoque /> : <Navigate to="/Estoque" />} />
           </Routes>
         </BrowserRouter>
       </AuthProvider>

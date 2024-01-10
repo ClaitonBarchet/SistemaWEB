@@ -1,7 +1,14 @@
+//AUTHENTICATION FIREBASE
 import { useState } from "react";
 import { useAuthentication } from "../../hooks/useAuthentication";
 import { FormGroup, Label, Form, Input, Card, Button  } from 'reactstrap';
 import { NavLink } from "react-router-dom";
+
+//DADOS BANCO PARALELO
+import React from 'react';
+import { useNavigate } from "react-router-dom";
+import { useAuthValue } from "../../context/AuthContext";
+import { useInsertDocument } from "../../hooks/useInsertDocument";
 
 const Cadastrar = () => {
     const [email, setEmail] = useState("")
@@ -34,7 +41,8 @@ const Cadastrar = () => {
         }else{
         setError ("")       
         }
-
+        
+        //VERIFICAÇÃO DE VALOR NULO
         if (error == null){
         setEmail("")
         setPassword("")
@@ -42,6 +50,8 @@ const Cadastrar = () => {
         }
 
         const res = await createUser (user)
+
+        //
 
     };
 
