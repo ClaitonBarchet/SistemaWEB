@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { useAuthValue } from "../../context/AuthContext";
 import { useInsertDocument } from "../../hooks/useInsertDocument";
 import { FormGroup, Label, Form, Input, Card, Button } from 'reactstrap';
-import styles from "./Viagem.css";
 
 const Viagem = () => {
   const [ data, setData ] = useState("");
