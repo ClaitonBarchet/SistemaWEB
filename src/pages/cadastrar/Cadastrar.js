@@ -4,19 +4,21 @@ import { useAuthentication } from "../../hooks/useAuthentication";
 import { FormGroup, Label, Form, Input, Card, Button  } from 'reactstrap';
 import { NavLink } from "react-router-dom";
 
-//DADOS BANCO PARALELO
-import React from 'react';
-import { useNavigate } from "react-router-dom";
-import { useAuthValue } from "../../context/AuthContext";
-import { useInsertDocument } from "../../hooks/useInsertDocument";
+import { useInsertUsuário } from "../../hooks/useInsertUsuário";
 
 const Cadastrar = () => {
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
-    const [confirmPassword, setConfirmPassword] = useState("")
-    const {createUser, error,setError, loading } = useAuthentication();
+    const [ email, setEmail] = useState("")
+    const [ password, setPassword] = useState("")
+    const [ confirmPassword, setConfirmPassword] = useState("")
+    const { createUser, error,setError, loading } = useAuthentication();
     
-    // MÉTODO
+    const [ data, setData ] = useState("");
+    const [ permissão, setPermissão] = useState("não")
+    const [ nome, setNome] = useState("meu nme")
+    const [ apelido, setApelido] = useState("nick name")
+    const { insertUsuário} = useInsertUsuário("users")
+
+    // MÉTODO SALVAR NO AUTHENTICATION
       const handleSubmit = async (e) => {
        e.preventDefault()
        setError(null)
@@ -49,9 +51,22 @@ const Cadastrar = () => {
         setConfirmPassword("")
         }
 
+        //CHAMA REGISTRO NO AUTHENTICATION
         const res = await createUser (user)
 
-        //
+        console.log("registro authentication")
+        //CHAMA REGISTRO NO FIRESTORE DATABASE <-
+         insertUsuário({
+           data,
+           ui: user.uid,
+           permissão,
+           nome,
+           apelido
+         })
+         console.log("registro bd users")
+         console.log(permissão)
+         console.log(nome)
+         console.log(apelido)
 
     };
 
@@ -124,6 +139,7 @@ const Cadastrar = () => {
 
           <p></p>
 
+          {/* PÓS CADASTRO */}
           <p>
           <NavLink color="primary" to= "/login">Voltar</NavLink>
           </p>
