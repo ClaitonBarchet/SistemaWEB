@@ -17,8 +17,7 @@ const Viagem = () => {
   const [ observações, setObservações ] = useState("");
   const [ error, setError ] = useState("");
   const { user} = useAuthValue();
-
-  const {response, insertDocument} = useInsertDocument("posts");
+  const { response, insertDocument } = useInsertDocument("posts");
 
   const navigate = useNavigate()
   
