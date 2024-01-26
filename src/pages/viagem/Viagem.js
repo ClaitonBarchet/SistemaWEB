@@ -31,7 +31,7 @@ const Viagem = () => {
   const hoInicialInt = parseInt (hoInicial)
   const hoFinalInt = parseInt (hoFinal)
 
-  //FALHA NA COMPARAÇÃO DOS VALORES
+  //COMPARAÇÃO DOS VALORES
   if (hoInicialInt > hoFinalInt){
     setError("O hodômetro inicial não pode ser maior que o hodômetro final!")
     console.log("ERRO Teste validação ho")

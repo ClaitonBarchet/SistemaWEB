@@ -4,7 +4,6 @@ import { useAuthentication } from "../../hooks/useAuthentication";
 import { FormGroup, Label, Form, Input, Card, Button  } from 'reactstrap';
 import { NavLink } from "react-router-dom";
 import { useAuthValue } from "../../context/AuthContext";
-
 import { useInsertDocument } from "../../hooks/useInsertDocument";
 
 const Cadastrar = () => {
@@ -12,7 +11,7 @@ const Cadastrar = () => {
     const [ password, setPassword] = useState("")
     const [ confirmPassword, setConfirmPassword] = useState("")
     const { createUser, error,setError, loading } = useAuthentication()
-    
+
     const [ permissão, setPermissão] = useState("não")
     const [ nome, setNome] = useState("meu nome")
     const [ apelido, setApelido] = useState("nick name")
@@ -58,16 +57,17 @@ const Cadastrar = () => {
         console.log("registro authentication")
         //CHAMA REGISTRO NO FIRESTORE DATABASE <-
 
-          insertDocument({
-          //  ui: user.uid,
-           permissão,
-           nome,
-           apelido
-         })
-         console.log("registro bd users")
-         console.log(permissão)
-         console.log(nome)
-         console.log(apelido)
+        //   insertDocument({
+        //    ui: user.uid,
+        //    permissão,
+        //    nome,
+        //    apelido
+        //  })
+        //  console.log("registro bd users")
+        //  console.log(user.uid)
+        //  console.log(permissão)
+        //  console.log(nome)
+        //  console.log(apelido)
 
     };
 

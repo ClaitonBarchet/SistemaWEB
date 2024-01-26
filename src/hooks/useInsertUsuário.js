@@ -2,6 +2,19 @@ import { useState, useEffect, useReducer } from "react"
 import { db } from "../firebase/config"
 import { collection, addDoc, Timestamp } from "firebase/firestore"
 
+
+// 
+import { useInsertDocument } from "../../hooks/useInsertDocument";
+
+const [ permissão, setPermissão] = useState("não")
+const [ nome, setNome] = useState("meu nome")
+const [ apelido, setApelido] = useState("nick name")
+const { response, insertDocument} = useInsertDocument("users")
+const { user } = useAuthValue();
+// 
+
+
+
 const initialState = {
     loading: null,
     error: null
@@ -51,6 +64,7 @@ export const useInsertUsuário = (docCollection) =>{
                 type: "INSERTED_DOC",
                 payload: insertedDocument
             })
+
             
         }catch(error) {
 

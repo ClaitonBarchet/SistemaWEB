@@ -1,7 +1,6 @@
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Navigate } from "react-router-dom";
-
 import Dropdown from 'react-bootstrap/Dropdown';
 
 // hooks
@@ -14,15 +13,14 @@ import { AuthProvider } from "./context/AuthContext";
 import { onAuthStateChanged } from "firebase/auth";
 
 //pages
-import Viagem from './pages/viagem/Viagem';
+import Viagem from "./pages/viagem/Viagem";
 import Login from "./pages/login/Login";
 import About from "./pages/about/About";
 import Cadastrar from "./pages/cadastrar/Cadastrar";
 import Histórico from "./pages/histórico/Histórico";
 import Editar from "./pages/editar/Editar";
 import Alterarsenha from "./pages/alterarsenha/Alterarsenha";
-
-import Estoque from './pages/estoque/Estoque';
+import Permissão from "./pages/permissão/Permissão";
 
  function App() {
    // AUTENTICAÇAO DO USUÁRIO
@@ -72,7 +70,6 @@ import Estoque from './pages/estoque/Estoque';
                             {!user && (<Dropdown.Item href="/cadastrar">CADASTRO</Dropdown.Item>)}
                             {user && (<Dropdown.Item href="/histórico">HISTÓRICO</Dropdown.Item>)}
                             {user && (<Dropdown.Item href="/">NOVA VIAGEM</Dropdown.Item>)}
-                            {user && (<Dropdown.Item href="/">ESTOQUE</Dropdown.Item>)}
                             {(<Dropdown.Item href="/about">SOBRE</Dropdown.Item>)}
                           <Dropdown.Divider />
                             {user && (<Dropdown.Item onClick={logout} href="/login">SAIR</Dropdown.Item>)}
@@ -95,11 +92,11 @@ import Estoque from './pages/estoque/Estoque';
             <Route  path="/" element={user ? <Viagem /> : <Navigate to="/Login" />} />
             <Route  path="/histórico" element={user ? <Histórico /> : <Navigate to="/Login" />} />
             <Route  path="/login" element={!user ? <Login /> : <Navigate to="/" />} />
-            <Route  path="/cadastrar" element={!user ? <Cadastrar /> : <Navigate to="/" />} />
+            <Route  path="/cadastrar" element={!user ? <Cadastrar /> : <Navigate to="/Permissão" />} />
             <Route  path="/about" element={<About />} />
             <Route  path="/editar" component = {Editar} element={user ? <Editar /> : <Navigate to="/Editar" />} />
             <Route  path="/alterarsenha" element={<Alterarsenha />} />
-            <Route  path="/estoque" element={user ? <Estoque /> : <Navigate to="/Estoque" />} />
+            <Route  path="/permissão" element={user ? <Permissão /> : <Navigate to="/Permissão" />} />
           </Routes>
         </BrowserRouter>
       </AuthProvider>
