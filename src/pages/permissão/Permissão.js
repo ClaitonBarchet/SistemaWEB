@@ -21,7 +21,6 @@ const Permissão = () => {
     e.preventDefault();
     setError(null)
 
-
         //CHAMA REGISTRO NO FIRESTORE DATABASE <-
 
           insertDocument({
@@ -35,12 +34,18 @@ const Permissão = () => {
          console.log(permissão)
          console.log(nome)
          console.log(apelido)
-};
+    };
   return (
     <div>
+
+          {/*CADASTRAR*/}
+          <p>
+          {<Button color="primary" outline
+          type="button" onClick={handleSubmit} className="btn">Cadastrar</Button>}
+          </p>
         <h5>Aguarde seu cadastro ser aprovado por um dos gestores.</h5>
     </div>
   )
   }
-teste 22-02-2024
+
 export default Permissão
